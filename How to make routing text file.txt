@@ -1,0 +1,5 @@
+1.copy text file into exel sheet.
+2.select all data and goto DATA tab in exel sheet, select remove duplicate colomns.
+3.arrenge all the data in ascending order.
+4.again select all the data and make a new text file.
+5.use that file into routing programme.
