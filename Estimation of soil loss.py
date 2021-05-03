@@ -19,7 +19,7 @@ row = ds1.RasterYSize
 driver=ds1.GetDriver()
 fdr = ds1.ReadAsArray()
 
-fn2 = r'G:\Test\Full_image\fac1.img'                    ##input FAC DO NOT CHANGE
+fn2 = r'G:\Test\Full_image\fac1.img'                    ##input flow accumulation (FAC) DO NOT CHANGE
 ds2 = gdal.Open(fn2, GA_ReadOnly)
 if ds2 is None:
     print 'Could not open ' + fn2
@@ -28,7 +28,7 @@ fac = ds2.ReadAsArray()
 maxf= fac.max()
 print "Maximum value of fac map is " +str(maxf)
 
-fn3 = r'G:\Endru\1999\Delivery of detached particles to runoff\g_s.img'                                         ##input G
+fn3 = r'G:\Endru\1999\Delivery of detached particles to runoff\g_s.img'                                         ##input G (refer the main paper to produce the ro map)
 ds3 = gdal.Open(fn3, GA_ReadOnly)
 if ds3 is None:
     print 'Could not open ' + fn3
@@ -43,7 +43,7 @@ if ds4 is None:
     sys.exit(2)
 DEP = ds4.ReadAsArray()
 
-fn5 = r'G:\Endru\1999\Transport capacity\tc_s.img'                                                              ##input TC
+fn5 = r'G:\Endru\1999\Transport capacity\tc_s.img'                                                              ##input TC (refer the main paper to produce the ro map)
 ds5 = gdal.Open(fn5, GA_ReadOnly)
 if ds5 is None:
     print 'Could not open ' + fn5
@@ -61,7 +61,7 @@ for a in range(row):
         SL1[a,b]=numpy.float64(SL1new[a,b])
         TC[a,b]=numpy.float64(TCnew[a,b])
 
-mx= 91088                                           ##input flow acc max value
+mx= 91088                                           ##input flow acc max value (users can calculate this in any GIS software for their study area)
 print "new maximum is " +str(mx)
 
 l1 = sum(1 for line in open("G:\\Test\\fac_arr.txt")) ##input txt
@@ -156,4 +156,4 @@ outDs.FlushCache()
 
 outDs = None
 del outData
-print "Ho gya"
+print "done"
