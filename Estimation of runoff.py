@@ -8,7 +8,7 @@ from osgeo import gdal
 from gdalconst import *
 import math
 
-fn1 = r'G:\Test\Full_image\fdr.img'                    ##input FDR "DO NOT CHANGE"
+fn1 = r'G:\Test\Full_image\fdr.img'                    ##input flow direction file (FDR) ##"DO NOT CHANGE"
 ds1 = gdal.Open(fn1, GA_ReadOnly)
 if ds1 is None:
     print 'Could not open ' + fn1
@@ -18,7 +18,7 @@ row = ds1.RasterYSize
 driver=ds1.GetDriver()
 fdr = ds1.ReadAsArray()
 
-fn2 = r'G:\Test\Full_image\fac1.img'                    ##input FAC "DO NOT CHANGE"
+fn2 = r'G:\Test\Full_image\fac1.img'                    ##input flow accumulation file (FAC) ###"DO NOT CHANGE"
 ds2 = gdal.Open(fn2, GA_ReadOnly)
 if ds2 is None:
     print 'Could not open ' + fn2
@@ -41,7 +41,7 @@ if ds4 is None:
     sys.exit(2)
 rc = ds4.ReadAsArray()
 
-fn5 = r'G:\Endru\1998\Input Parameters\ro.img'                                                              ##input ro
+fn5 = r'G:\Endru\1998\Input Parameters\ro.img'                                                              ##input ro (refer the main paper to produce the ro map)
 ds5 = gdal.Open(fn5, GA_ReadOnly)
 if ds5 is None:
     print 'Could not open ' + fn5
@@ -58,7 +58,7 @@ if ds6 is None:
 R = ds6.ReadAsArray()
 
 
-fn7 = r'G:\Endru\1998\Estimation of runoff\E.img'                                                           ##input E
+fn7 = r'G:\Endru\1998\Estimation of runoff\E.img'                                                           ##input E (refer the main paper to produce the ro map)
 ds7 = gdal.Open(fn7, GA_ReadOnly)
 if ds7 is None:
     print 'Could not open ' + fn7
@@ -66,7 +66,7 @@ if ds7 is None:
 E = ds7.ReadAsArray()
 
 
-fn8 = r'G:\Endru\1998\Estimation of runoff\LP1.img'         ##input LP "DO NOT CHANGE"
+fn8 = r'G:\Endru\1998\Estimation of runoff\LP1.img'         ##input LP "DO NOT CHANGE" (refer the main paper to produce the ro map)
 ds8 = gdal.Open(fn8, GA_ReadOnly)
 if ds8 is None:
     print 'Could not open ' + fn8
@@ -74,7 +74,7 @@ if ds8 is None:
 LP = ds8.ReadAsArray()
 
 
-fn9 = r'G:\Endru\1998\Estimation of runoff\sins.img'        ##input sins "DO NOT CHANGE"
+fn9 = r'G:\Endru\1998\Estimation of runoff\sins.img'        ##input sins "DO NOT CHANGE" (refer the main paper to produce the ro map)
 ds9 = gdal.Open(fn9, GA_ReadOnly)
 if ds9 is None:
     print 'Could not open ' + fn9
@@ -86,7 +86,7 @@ Q=numpy.zeros((row,col),numpy.float)
 Qe=numpy.zeros((row,col),numpy.float)
 IF=numpy.zeros((row,col),numpy.float)
 
-mx= 91088                                           ##input flow acc max value
+mx= 91088                                           ##input flow acc max value (users can calculate this value in any GIS software for their study area)
 print "new maximum is " +str(mx)
 
 l1 = sum(1 for line in open("G:\\Test\\fac_arr.txt")) ##input txt
