@@ -7,7 +7,7 @@ import sys, os, glob
 from osgeo import gdal 	 
 from gdalconst import *
 
-fn1 = r'G:\Test\Full_image\fac.img'                    ##input FDR
+fn1 = r'G:\Test\Full_image\fac.img'                    ##input flow direction (FDR)
 ds1 = gdal.Open(fn1, GA_ReadOnly)
 if ds1 is None:
     print 'Could not open ' + fn1
